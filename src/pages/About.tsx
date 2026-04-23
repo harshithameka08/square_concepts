@@ -3,12 +3,7 @@ import Section from '@/src/components/Section';
 import { Target, Lightbulb, Shield, Timer, Award, Smile } from 'lucide-react';
 import { FadeIn, FadeInRight, ScaleIn, defaultVariants } from '@/src/components/Motion';
 
-const team = [
-  { name: 'Alex Rivera', role: 'Principal Designer', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Maya Chen', role: 'Head of Architecture', image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Leo Sterling', role: 'Modular Kitchen Expert', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600' },
-  { name: 'James Wilson', role: 'Furniture Stylist', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600' },
-];
+
 
 const advantages = [
   { icon: <Shield />, title: 'End-to-End Service', description: 'From concept to execution, we handle everything.' },
@@ -88,8 +83,8 @@ export default function About() {
               </FadeIn>
            </div>
            <ScaleIn className="relative">
-              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Excellence" className="rounded-3xl smooth-shadow w-full" />
-              <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent rounded-3xl opacity-10 -rotate-12" />
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Excellence" className="rounded-3xl smooth-shadow w-full aspect-square object-cover" />
+
            </ScaleIn>
         </div>
       </Section>
@@ -119,29 +114,26 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Team */}
+      {/* Our Philosophy */}
       <Section className="bg-primary-bg pb-12 md:pb-16">
-         <div className="text-center mb-16 max-w-3xl mx-auto">
-            <FadeIn>
-              <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">The Visionaries</h4>
-              <h2 className="text-5xl font-display font-bold mb-6 leading-tight">Meet the Creative Minds</h2>
-            </FadeIn>
-         </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-            {team.map((member, idx) => (
-              <motion.div
-                key={member.name}
-                variants={defaultVariants}
-                className="group"
-              >
-                 <div className="aspect-[3/4] rounded-xl overflow-hidden mb-6 filter grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                 </div>
-                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                 <p className="text-text-dark/40 uppercase tracking-widest text-[10px] font-bold">{member.role}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+           <ScaleIn className="relative order-2 lg:order-1">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Our Studio" className="rounded-3xl smooth-shadow w-full aspect-square object-cover" />
+
+           </ScaleIn>
+           <div className="space-y-8 order-1 lg:order-2">
+              <FadeIn>
+                <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Our Core Philosophy</h4>
+                <h2 className="text-5xl font-display font-bold leading-tight">Crafting Legacies Through Design</h2>
+              </FadeIn>
+              <FadeIn className="text-xl text-text-dark/60 leading-relaxed">
+                At Square Concepts, we believe that a well-designed space is the foundation of a life well-lived. Our approach is rooted in the belief that every environment has a story to tell.
+              </FadeIn>
+              <FadeIn className="text-lg text-text-dark/50 leading-relaxed">
+                We combine the latest in architectural technology with timeless aesthetic principles to create spaces that are not only beautiful but also deeply functional and enduring. Our team of experts works tirelessly to ensure that every project reflects the unique personality and aspirations of our clients, delivering excellence in every detail.
+              </FadeIn>
+           </div>
+        </div>
       </Section>
 
       {/* Why Choose Us */}
