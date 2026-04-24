@@ -6,6 +6,20 @@ import { cn } from '@/src/lib/utils';
 
 export default function Contact() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow letters and spaces
+    const val = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    setName(val);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow numbers
+    const val = e.target.value.replace(/[^0-9]/g, '');
+    setPhone(val);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,11 +95,11 @@ export default function Contact() {
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                          <label className="text-sm font-bold uppercase tracking-widest text-text-dark/40" htmlFor="name">Full Name</label>
-                         <input required id="name" type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-primary-bg rounded-xl border border-text-dark/5 focus:border-accent outline-none transition-all" />
+                         <input required id="name" type="text" placeholder="John Doe" value={name} onChange={handleNameChange} className="w-full px-6 py-4 bg-primary-bg rounded-xl border border-text-dark/5 focus:border-accent outline-none transition-all" />
                       </div>
                       <div className="space-y-2">
                          <label className="text-sm font-bold uppercase tracking-widest text-text-dark/40" htmlFor="phone">Phone Number</label>
-                         <input required id="phone" type="tel" placeholder="+1 (555) 000-0000" className="w-full px-6 py-4 bg-primary-bg rounded-xl border border-text-dark/5 focus:border-accent outline-none transition-all" />
+                         <input required id="phone" type="tel" placeholder="9010106877" value={phone} onChange={handlePhoneChange} className="w-full px-6 py-4 bg-primary-bg rounded-xl border border-text-dark/5 focus:border-accent outline-none transition-all" />
                       </div>
                    </div>
                    <div className="space-y-2">
@@ -122,31 +136,35 @@ export default function Contact() {
               <div>
                  <h3 className="text-2xl font-bold mb-6">Quick Contact</h3>
                  <div className="space-y-6">
-                    <a href="tel:+15550000000" className="flex items-center gap-6 group">
-                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                    <a href="tel:+919010106877" className="flex items-center gap-6 group">
+                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
                           <Phone size={24} />
                        </div>
                        <div>
                           <div className="text-text-dark/40 text-xs font-bold uppercase tracking-widest mb-1">Call Us</div>
-                          <div className="text-xl font-bold">+1 (555) 000-0000</div>
+                          <div className="text-xl font-bold">+91 9010106877</div>
                        </div>
                     </a>
-                    <a href="mailto:hello@squareconcepts.com" className="flex items-center gap-6 group">
-                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                    <a href="mailto:Squareconcepts6877@gmail.com" className="flex items-center gap-6 group">
+                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
                           <Mail size={24} />
                        </div>
                        <div>
                           <div className="text-text-dark/40 text-xs font-bold uppercase tracking-widest mb-1">Email Us</div>
-                          <div className="text-xl font-bold">hello@squareconcepts.com</div>
+                          <div className="text-lg sm:text-xl font-bold break-all">Squareconcepts6877@gmail.com</div>
                        </div>
                     </a>
-                    <div className="flex items-center gap-6 group">
-                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent">
+                    <div className="flex items-start gap-6 group">
+                       <div className="w-14 h-14 rounded-2xl bg-white smooth-shadow flex items-center justify-center text-accent shrink-0">
                           <MapPin size={24} />
                        </div>
                        <div>
                           <div className="text-text-dark/40 text-xs font-bold uppercase tracking-widest mb-1">Visit Studio</div>
-                          <div className="text-xl font-bold">123 Interior Blvd, Design District, NY</div>
+                          <div className="text-[15px] sm:text-lg font-bold leading-relaxed">
+                            Plot t no-1,2,19,20sy.No 61 57p,2nd floor<br/>
+                            Madhapur Pride Pillar No-1722,<br/>
+                            Madhapur,Hyderabad,Telangana 500081
+                          </div>
                        </div>
                     </div>
                  </div>

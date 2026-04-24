@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import kitchenElements from '../kitchen.elements.jpg';
+import nolteLogo from '../Nolte_Küchen_logo.svg.png';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ChevronRight, Star, Quote, ArrowUpRight, Sparkles, MapPin } from 'lucide-react';
 import Section from '@/src/components/Section';
@@ -261,13 +262,20 @@ export default function Home() {
               </p>
             </FadeIn>
             
-            <FadeIn className="flex flex-wrap gap-6 items-center">
+            <FadeIn className="flex flex-wrap gap-4 items-center">
               <Link
                 to="/projects"
-                className="bg-accent hover:bg-accent-hover text-white px-10 py-5 rounded-full font-bold text-xl transition-all hover:shadow-2xl hover:shadow-accent/30 flex items-center gap-3 group"
+                className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:shadow-2xl hover:shadow-accent/30 flex items-center gap-2 group"
               >
                 View Collections
-                <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/services"
+                className="bg-secondary-bg/5 hover:bg-secondary-bg/10 backdrop-blur-md text-secondary-bg border border-secondary-bg/10 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 group"
+              >
+                Our Services
+                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </FadeIn>
 
@@ -507,6 +515,93 @@ export default function Home() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Nolte Germany Section */}
+      <Section className="bg-primary-bg py-16 md:py-20 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="order-2 lg:order-1 space-y-8">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] tracking-tight text-secondary-bg mb-6">
+                Precision Engineered <br /> by <span className="text-accent italic font-light">Nolte Germany</span>
+              </h2>
+              <p className="text-lg text-secondary-bg/60 leading-relaxed max-w-xl">
+                Experience the pinnacle of German engineering. Since 1958, Nolte has been synonymous with exceptional quality, transforming kitchens into architectural masterpieces.
+              </p>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-secondary-bg/5">
+              <FadeIn className="space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-secondary-bg flex items-center justify-center text-white">
+                  <CheckCircle2 size={16} />
+                </div>
+                <h4 className="font-display font-bold text-base">German Heritage</h4>
+                <p className="text-xs text-secondary-bg/50 leading-relaxed">
+                  Crafting excellence for over 65 years with state-of-the-art manufacturing in Germany.
+                </p>
+              </FadeIn>
+              <FadeIn className="space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-secondary-bg flex items-center justify-center text-white">
+                  <Sparkles size={16} />
+                </div>
+                <h4 className="font-display font-bold text-base">Sustainable Luxury</h4>
+                <p className="text-xs text-secondary-bg/50 leading-relaxed">
+                  Deeply committed to the environment with FSC® and PEFC™ certified sustainable wood.
+                </p>
+              </FadeIn>
+              <FadeIn className="space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-secondary-bg flex items-center justify-center text-white">
+                  <ArrowUpRight size={16} />
+                </div>
+                <h4 className="font-display font-bold text-base">Smart Ergonomics</h4>
+                <p className="text-xs text-secondary-bg/50 leading-relaxed">
+                  The revolutionary MATRIX grid system ensures perfect height planning and storage.
+                </p>
+              </FadeIn>
+              <FadeIn className="space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-secondary-bg flex items-center justify-center text-white">
+                  <MapPin size={16} />
+                </div>
+                <h4 className="font-display font-bold text-base">World-Class Hardware</h4>
+                <p className="text-xs text-secondary-bg/50 leading-relaxed">
+                  Integrated silent soft-closing technology engineered for heavy daily use.
+                </p>
+              </FadeIn>
+            </div>
+
+            <FadeIn>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-3 text-secondary-bg font-bold text-base group pt-2"
+              >
+                Explore Nolte Collection
+                <div className="w-8 h-8 rounded-full border border-secondary-bg/20 flex items-center justify-center group-hover:bg-secondary-bg group-hover:text-white transition-all">
+                  <ArrowRight size={16} />
+                </div>
+              </Link>
+            </FadeIn>
+          </div>
+
+          <div className="order-1 lg:order-2 relative">
+            <ScaleIn className="relative z-10 rounded-[2.5rem] overflow-hidden smooth-shadow aspect-[4/3] border-[10px] border-white">
+              <img 
+                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200" 
+                alt="Nolte Germany Kitchen Design" 
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary-bg/30 to-transparent" />
+              
+              {/* Badge Overlay */}
+              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-xl border border-white/20 flex items-center justify-center">
+                 <img src={nolteLogo} alt="Nolte Germany Logo" className="h-6 w-auto object-contain" />
+              </div>
+            </ScaleIn>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-6 -right-6 w-48 h-48 bg-accent/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-accent/5 rounded-full blur-3xl -z-10" />
           </div>
         </div>
       </Section>

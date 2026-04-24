@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin, PhoneCall } from 'lucide-react';
 import logoImage from '../logo.image.png';
 
 const links = {
@@ -20,7 +20,9 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary-bg text-text-light pt-12 pb-8 px-6">
+    <>
+
+      <footer className="bg-secondary-bg text-text-light pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
         {/* Brand */}
         <div className="space-y-4">
@@ -74,18 +76,18 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 className="font-display font-bold text-lg mb-4">Contact Us</h4>
-          <ul className="space-y-2">
-            <li className="flex gap-3 text-text-light/60">
-              <MapPin size={18} className="text-accent shrink-0" />
-              <span>123 Interior Boulevard, Design District, New York, NY 10001</span>
+          <ul className="space-y-4">
+            <li className="flex gap-3 text-text-light/60 items-start">
+              <MapPin size={18} className="text-accent shrink-0 mt-1" />
+              <span className="leading-relaxed">Plot t no-1,2,19,20sy.No 61 57p,2nd floor<br/>Madhapur Pride Pillar No-1722,<br/>Madhapur,Hyderabad,Telangana 500081</span>
             </li>
-            <li className="flex gap-3 text-text-light/60">
+            <li className="flex gap-3 text-text-light/60 items-center">
               <Phone size={18} className="text-accent shrink-0" />
-              <span>+1 (555) 000-0000</span>
+              <span>+91 9010106877</span>
             </li>
-            <li className="flex gap-3 text-text-light/60">
+            <li className="flex gap-3 text-text-light/60 items-center">
               <Mail size={18} className="text-accent shrink-0" />
-              <span>hello@squareconcepts.com</span>
+              <span>Squareconcepts6877@gmail.com</span>
             </li>
           </ul>
         </div>
@@ -99,5 +101,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

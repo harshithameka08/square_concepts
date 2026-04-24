@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import PopupAlert from './components/PopupAlert';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Consultation from './pages/Consultation';
@@ -58,6 +59,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen overflow-x-hidden">
+        <PopupAlert />
         <Header />
         <main className="flex-grow">
           <AnimatedRoutes />
