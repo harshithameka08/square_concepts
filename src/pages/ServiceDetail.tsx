@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import Section from '@/src/components/Section';
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Layout, Award, Settings } from 'lucide-react';
 import { primaryServices } from './Services';
+import { cn } from '@/src/lib/utils';
 
 const serviceData: Record<string, any> = {
   'modular-kitchens': {
@@ -113,9 +114,8 @@ const serviceData: Record<string, any> = {
       { icon: <Award />, label: 'Artisan Quality', desc: 'Handcrafted details in every corner.' }
     ],
     galleryImages: [
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800'
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&q=80&w=1200'
     ]
   },
   'renovation-remodeling': {
@@ -162,7 +162,13 @@ export default function ServiceDetail() {
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-20">
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <Link to="/services" className="inline-flex items-center gap-2 text-accent font-bold uppercase tracking-widest text-xs mb-6 hover:gap-4 transition-all">
+              <Link 
+                to="/services" 
+                className={cn(
+                  "inline-flex items-center gap-2 font-bold uppercase tracking-widest text-xs mb-6 hover:gap-4 transition-all",
+                  (id === 'custom-wardrobes' || id === 'turnkey-interiors') ? "text-white" : "text-accent"
+                )}
+              >
                 <ArrowLeft size={16} /> Back to Services
               </Link>
               <h1 className="text-5xl md:text-8xl font-display font-bold text-white tracking-tighter mb-4">{service.title}</h1>
@@ -173,7 +179,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Info Grid */}
-      <Section noPadding className="bg-primary-bg pt-24 pb-0">
+      <Section noPadding className="bg-primary-bg pt-10 md:pt-16 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-start">
           {/* Left Column */}
           <div className="lg:col-span-8 space-y-16">
@@ -252,10 +258,10 @@ export default function ServiceDetail() {
       </Section>
 
       {/* Gallery */}
-      <Section noPadding className="bg-primary-bg pt-12 pb-20">
-        <div className="max-w-6xl mx-auto">
+      <Section noPadding className="bg-primary-bg pt-12 pb-16 md:pb-20">
+        <div className="max-w-5xl mx-auto px-6">
           {service.galleryImages.length === 2 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[450px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[350px]">
               {service.galleryImages.map((img: string, i: number) => (
                 <div key={i} className="rounded-[40px] overflow-hidden smooth-shadow relative group">
                   <img src={img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={`Gallery ${i + 1}`} />
@@ -263,7 +269,7 @@ export default function ServiceDetail() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[450px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[320px]">
               <div className="rounded-[40px] overflow-hidden smooth-shadow relative group">
                 <img src={service.galleryImages[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery 1" />
               </div>
@@ -281,7 +287,7 @@ export default function ServiceDetail() {
       </Section>
 
       {/* Other Services */}
-      <Section className="bg-white border-y border-text-dark/5">
+      <Section className="bg-white border-y border-text-dark/5 pt-10 md:pt-16 pb-12 md:pb-20">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl font-display font-bold italic">Other Services</h2>
           <Link to="/services" className="text-accent font-bold hover:gap-2 transition-all flex items-center gap-1">

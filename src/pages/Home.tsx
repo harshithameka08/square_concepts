@@ -9,11 +9,46 @@ import { cn } from '@/src/lib/utils';
 import { FadeIn, FadeInRight, ScaleIn, defaultVariants } from '@/src/components/Motion';
 
 const stats = [
-  { value: '500+', label: 'PROJECTS COMPLETED' },
-  { value: '98%', label: 'HAPPY CLIENTS' },
-  { value: '10+', label: 'YEARS OF EXPERTISE' },
-  { value: '25+', label: 'DESIGN AWARDS' },
+  { value: '500+', label: 'PROJECTS COMPLETED', target: 500, suffix: '+' },
+  { value: '98%', label: 'HAPPY CLIENTS', target: 98, suffix: '%' },
+  { value: '10+', label: 'YEARS OF EXPERTISE', target: 10, suffix: '+' },
+  { value: '25+', label: 'DESIGN AWARDS', target: 25, suffix: '+' },
 ];
+
+const Counter = ({ target, suffix, duration = 2 }: { target: number; suffix: string; duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (!isInView) return;
+    
+    let start = 0;
+    const end = target;
+    const totalFrames = duration * 60;
+    const increment = end / totalFrames;
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 1000 / 60);
+
+    return () => clearInterval(timer);
+  }, [target, duration, isInView]);
+
+  return (
+    <motion.span
+      onViewportEnter={() => setIsInView(true)}
+      viewport={{ once: true }}
+    >
+      {count}{suffix}
+    </motion.span>
+  );
+};
 
 const services = [
   {
@@ -195,7 +230,7 @@ const ProjectCard: React.FC<{ project: any; idx: number }> = ({ project, idx }) 
       {isHovered && (
         <div className="absolute inset-0 z-0">
           <iframe
-            src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0`}
+            src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${project.videoId}`}
             title={project.title}
             className="w-[100%] h-[100%] scale-[2.2] origin-center"
             allow="autoplay; encrypted-media"
@@ -398,7 +433,7 @@ export default function Home() {
       </Section>
 
       {/* Services Section */}
-      <Section dark className="pt-24 pb-12 md:pt-32 md:pb-16">
+      <Section dark className="pt-10 pb-12 md:pt-16 md:pb-16">
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">What We Do</h4>
           <h2 className="text-5xl font-display font-bold mb-6 text-white leading-tight">
@@ -478,7 +513,7 @@ export default function Home() {
       </Section>
 
       {/* Process Section */}
-      <Section className="bg-white border-y border-text-dark/5 relative pt-12 md:pt-16">
+      <Section className="bg-white border-y border-text-dark/5 relative pt-12 md:pt-16 pb-10 md:pb-14">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
         <div className="text-center mb-24 max-w-3xl mx-auto">
@@ -520,7 +555,7 @@ export default function Home() {
       </Section>
 
       {/* Nolte Germany Section */}
-      <Section className="bg-primary-bg py-16 md:py-20 overflow-hidden">
+      <Section className="bg-primary-bg pt-8 md:pt-12 pb-16 md:pb-20 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="order-2 lg:order-1 space-y-8">
             <FadeIn>
@@ -613,9 +648,9 @@ export default function Home() {
           <img 
             src={kitchenElements} 
             alt="Kitchen Elements" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-80 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-secondary-bg/70" />
+          <div className="absolute inset-0 bg-secondary-bg/50" />
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center relative z-10">
@@ -628,7 +663,9 @@ export default function Home() {
               variants={defaultVariants}
               transition={{ delay: idx * 0.1 }}
             >
-              <div className="text-5xl md:text-6xl font-display font-bold text-accent mb-2 tracking-tighter">{stat.value}</div>
+              <div className="text-5xl md:text-6xl font-display font-bold text-accent mb-2 tracking-tighter">
+                <Counter target={stat.target} suffix={stat.suffix} />
+              </div>
               <div className="text-text-light/50 font-medium uppercase tracking-widest text-[10px] md:text-xs">{stat.label}</div>
             </motion.div>
           ))}

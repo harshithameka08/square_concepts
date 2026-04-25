@@ -57,7 +57,7 @@ export default function Consultation() {
         </div>
       </section>
 
-      <Section className="bg-primary-bg">
+      <Section className="bg-primary-bg pt-10 md:pt-16 pb-12 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
            {/* Form Column */}
            <div className="flex flex-col">

@@ -18,7 +18,7 @@ export default function About() {
   return (
     <div className="pt-20">
       {/* About Hero */}
-      <section className="relative pt-20 pb-32 px-6 text-center overflow-hidden min-h-[60vh] flex items-center justify-center">
+      <section className="relative pt-20 pb-12 md:pb-16 px-6 text-center overflow-hidden min-h-[60vh] flex items-center justify-center">
          {/* Background Image & Overlay */}
          <div className="absolute inset-0 z-0">
             <img 
@@ -59,7 +59,7 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <Section className="bg-primary-bg">
+      <Section className="bg-primary-bg pt-10 md:pt-16 pb-12 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
            <div className="space-y-8">
               <FadeIn>
@@ -82,15 +82,14 @@ export default function About() {
                  </div>
               </FadeIn>
            </div>
-           <ScaleIn className="relative">
-              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Excellence" className="rounded-3xl smooth-shadow w-full aspect-square object-cover" />
-
+           <ScaleIn className="relative flex justify-center lg:justify-end">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Excellence" className="rounded-3xl smooth-shadow w-full max-w-lg aspect-square object-cover" />
            </ScaleIn>
         </div>
       </Section>
 
       {/* Our Approach */}
-      <Section dark className="bg-secondary-bg pt-12 md:pt-16">
+      <Section dark className="bg-secondary-bg pt-8 md:pt-12 pb-12 md:pb-20">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <FadeIn>
             <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">How We Work</h4>
@@ -115,11 +114,10 @@ export default function About() {
       </Section>
 
       {/* Our Philosophy */}
-      <Section className="bg-primary-bg pb-12 md:pb-16">
+      <Section className="bg-primary-bg pt-10 md:pt-16 pb-12 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-           <ScaleIn className="relative order-2 lg:order-1">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Our Studio" className="rounded-3xl smooth-shadow w-full aspect-square object-cover" />
-
+           <ScaleIn className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Our Studio" className="rounded-3xl smooth-shadow w-full max-w-lg aspect-square object-cover" />
            </ScaleIn>
            <div className="space-y-8 order-1 lg:order-2">
               <FadeIn>
@@ -137,7 +135,7 @@ export default function About() {
       </Section>
 
       {/* Why Choose Us */}
-      <Section className="bg-white border-y border-text-dark/5 pt-12 md:pt-16">
+      <Section className="bg-white border-y border-text-dark/5 pt-12 md:pt-16 pb-10 md:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
            <FadeInRight className="lg:col-span-1">
               <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Advantages</h4>

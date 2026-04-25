@@ -11,10 +11,10 @@ const links = {
     { name: 'Contact', path: '/contact' },
   ],
   services: [
-    { name: 'Residential Design', path: '/services#residential' },
-    { name: 'Modular Kitchens', path: '/services#kitchen' },
-    { name: 'Living Room', path: '/services#living' },
-    { name: 'Office Spaces', path: '/services#office' },
+    { name: 'Modular Kitchens', path: '/services/modular-kitchens' },
+    { name: 'Custom Wardrobes', path: '/services/custom-wardrobes' },
+    { name: 'Turnkey Interiors', path: '/services/turnkey-interiors' },
+    { name: 'Residential Design', path: '/services/residential-interiors' },
   ],
 };
 
@@ -22,14 +22,14 @@ export default function Footer() {
   return (
     <>
 
-      <footer className="bg-secondary-bg text-text-light pt-16 pb-8 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <footer className="bg-secondary-bg text-text-light pt-10 pb-8 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex items-center">
              <img src={logoImage} alt="Square Concepts Logo" className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity" />
           </div>
-          <p className="text-text-light/60 max-w-xs leading-relaxed">
+          <p className="text-text-light/60 max-w-xs leading-relaxed text-sm">
             Crafting bespoke interiors that blend elegance with functionality. Your vision, our expertise, timeless results.
           </p>
           <div className="flex gap-4">
@@ -47,11 +47,11 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-display font-bold text-lg mb-4">Quick Links</h4>
+          <h4 className="font-display font-bold text-lg mb-4 text-accent">Quick Links</h4>
           <ul className="space-y-2">
             {links.navigation.map((link) => (
               <li key={link.name}>
-                <Link to={link.path} className="text-text-light/60 hover:text-accent transition-colors">
+                <Link to={link.path} className="text-text-light/60 hover:text-accent transition-colors text-sm">
                   {link.name}
                 </Link>
               </li>
@@ -61,11 +61,11 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <h4 className="font-display font-bold text-lg mb-4">Our Services</h4>
+          <h4 className="font-display font-bold text-lg mb-4 text-accent">Our Services</h4>
           <ul className="space-y-2">
             {links.services.map((link) => (
               <li key={link.name}>
-                <Link to={link.path} className="text-text-light/60 hover:text-accent transition-colors">
+                <Link to={link.path} className="text-text-light/60 hover:text-accent transition-colors text-sm">
                   {link.name}
                 </Link>
               </li>
@@ -75,19 +75,23 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="font-display font-bold text-lg mb-4">Contact Us</h4>
+          <h4 className="font-display font-bold text-lg mb-4 text-accent">Contact Us</h4>
           <ul className="space-y-4">
             <li className="flex gap-3 text-text-light/60 items-start">
-              <MapPin size={18} className="text-accent shrink-0 mt-1" />
-              <span className="leading-relaxed">Plot t no-1,2,19,20sy.No 61 57p,2nd floor<br/>Madhapur Pride Pillar No-1722,<br/>Madhapur,Hyderabad,Telangana 500081</span>
+              <MapPin size={14} className="text-accent shrink-0 mt-1" />
+              <div className="text-xs leading-relaxed">
+                Plot t no-1,2,19,20sy.No 61 57p,2nd floor<br/>
+                Madhapur Pride Pillar No-1722,<br/>
+                Madhapur, Hyderabad, Telangana 500081
+              </div>
             </li>
             <li className="flex gap-3 text-text-light/60 items-center">
-              <Phone size={18} className="text-accent shrink-0" />
-              <span>+91 9010106877</span>
+              <Phone size={14} className="text-accent shrink-0" />
+              <span className="text-xs">+91 9010106877</span>
             </li>
             <li className="flex gap-3 text-text-light/60 items-center">
-              <Mail size={18} className="text-accent shrink-0" />
-              <span>Squareconcepts6877@gmail.com</span>
+              <Mail size={14} className="text-accent shrink-0" />
+              <span className="text-xs">Squareconcepts6877@gmail.com</span>
             </li>
           </ul>
         </div>

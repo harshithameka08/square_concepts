@@ -66,7 +66,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <Section className="bg-primary-bg">
+      <Section className="bg-primary-bg pt-10 md:pt-16 pb-12 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
            {/* Form Column */}
            <div className="bg-white p-10 rounded-[32px] smooth-shadow border border-text-dark/5">
@@ -163,7 +163,7 @@ export default function Contact() {
                           <div className="text-[15px] sm:text-lg font-bold leading-relaxed">
                             Plot t no-1,2,19,20sy.No 61 57p,2nd floor<br/>
                             Madhapur Pride Pillar No-1722,<br/>
-                            Madhapur,Hyderabad,Telangana 500081
+                            Madhapur, Hyderabad, Telangana 500081
                           </div>
                        </div>
                     </div>

@@ -96,7 +96,7 @@ export default function Services() {
       </section>
 
       {/* Primary Services List Type UI */}
-      <Section className="bg-primary-bg pt-8 md:pt-10">
+      <Section className="bg-primary-bg pt-8 md:pt-10 pb-10 md:pb-12">
         <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-display font-bold">Primary Services</h2>
             <div className="h-px flex-grow bg-text-dark/10" />
@@ -170,7 +170,7 @@ export default function Services() {
       </Section>
 
       {/* Supporting Services Grid */}
-      <Section className="bg-white border-y border-text-dark/5 pt-8 md:pt-10 pb-32">
+      <Section className="bg-white border-y border-text-dark/5 pt-8 md:pt-10 pb-8 md:pb-10">
         <div className="text-center mb-20 max-w-2xl mx-auto">
            <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Value Added Services</h4>
            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 italic">Supporting Design Elements</h2>
@@ -198,8 +198,8 @@ export default function Services() {
       </Section>
 
       {/* Final CTA */}
-      <Section dark className="bg-secondary-bg pt-32 pb-0">
-         <div className="flex flex-col md:flex-row items-center justify-between gap-12 bg-white/5 p-12 md:p-20 rounded-[40px] border border-white/10">
+      <Section dark className="bg-secondary-bg pt-8 md:pt-10 pb-6 md:pb-8">
+         <div className="flex flex-col md:flex-row items-center justify-between gap-12 bg-white/5 p-10 md:p-12 rounded-[40px] border border-white/10">
             <div className="max-w-xl">
                <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">Ready to build your <br /> dream interior?</h2>
                <p className="text-text-light/60 text-lg mb-8">Schedule a session with our design consultant to explore these services in depth for your home.</p>
